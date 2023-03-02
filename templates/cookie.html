@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="col-xs-6 text-center">
+    {%from "_macros.html" import render_firld %}
+    <form action="/cookie" method="POST" novalidate>
+    {{form.csrf_token}}
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="row control-group">
+
+            <div class="form-group">
+                {{render_firld(form.username, class='form-control')}}
+                {{render_firld(form.password, class='form-control')}}
+            </div>
+        </div>
+        <input type="submit" id="al" name="al" value="Registrar">
+    </form>
+    </div>
+    <div class="col-md-4">
+    
+{% endblock %}

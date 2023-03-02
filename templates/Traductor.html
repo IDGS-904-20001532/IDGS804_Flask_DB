@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="col-xs-6 text-center">
+    {%from "_macros.html" import render_firld %}
+    <form action="/Traductor" method="POST" novalidate>
+        {{form.csrf_token}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="row control-group">
+            <div class="form-group">
+                {{render_firld(form.txtEspanol, class='form-control')}}
+                <spam style="color: red;">{{rep}}</spam>
+                {{render_firld(form.txtIngles, class='form-control')}}   
+                <spam style="color: red;">{{rep1}}</spam>
+            </div>
+            <input type="submit" id="al" class="btn btn-info" name="al" value="Guardar">
+        </div>
+    </form>
+    <form action="/TraductorR" method="POST">
+        {{form.csrf_token}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="row control-group">
+            <input type="submit" id="al" class="btn btn-danger" name="al" value="Ir a pagina de tradución">
+
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
